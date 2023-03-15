@@ -1,5 +1,5 @@
 # ATS
-Course at the Warsaw univeristy based on python
+Course at the Warsaw univeristy based on python.
 It encompasses: 
 - developing and solution of various mathematical problems
 - building financial models such as Monte Carlo simulation for option pricing 
