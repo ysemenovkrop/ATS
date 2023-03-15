@@ -2,7 +2,7 @@
 import math
 from statistics import mean, stdev
 
-# parent class -> calculator
+# parent class -> Cals
 class Calc:
     # constructor
     def __init__(self, name, producer, color, memList):
