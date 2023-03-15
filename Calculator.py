@@ -19,15 +19,19 @@ class Calc:
         print("sum:", get_sum)
         self.memList.append(get_sum)
 
-    def Subtract(self, a, b):
-        sub_calc = a - b
-        print("sub:", sub_calc)
-        self.memList.append(sub_calc)
+    def Subtract(self, *args):
+        get_sub = args[0]
+        for arg in args[1:]:
+            get_sub = get_sub - arg
+        print("sub:", get_sub)
+        self.memList.append(get_sub)
 
-    def Divide(self, a, b):
-        div_calc = a / b
-        print("div:", div_calc)
-        self.memList.append(div_calc)
+    def Divide(self, *args):
+        get_div = args[0]
+        for arg in args[1:]:
+            get_div = get_div / arg
+        print("div:", get_div)
+        self.memList.append(get_div)
 
     def Multiply(self, *args):
         get_mult = 1
@@ -38,7 +42,6 @@ class Calc:
 
     def PrintResults(self):
         print("memory list:", self.memList)
-
 
 # Scientific calcualtor -> child class_1
 class ScientificCalc(Calc):
@@ -55,10 +58,12 @@ class ScientificCalc(Calc):
         print("log: ", log_calc)
         self.memList.append(log_calc)
 
-    def Pow(self, a, b):
-        pow_calc = a ** b
-        print("pow: ", pow_calc)
-        self.memList.append(pow_calc)
+    def Pow(self, *args):
+        get_pow = args[0]
+        for arg in args[1:]:
+            get_pow = get_pow ** arg
+        print("pow: ", get_pow)
+        self.memList.append(get_pow)
 
 
 # Extra Calculator -> child class_2
@@ -92,20 +97,18 @@ class ExtraCalc(Calc):
         self.memList.append(get_sd)
 
 
-
-
 # name, producer, color, memList
 calc1 = Calc("calc1", "Yurii", "Na", "dynamic")
 calc1.Add([2, 3])
-calc1.Subtract(2, 3)
-calc1.Divide(4, 2)
-calc1.Multiply(2, 3, 2)
+calc1.Subtract(10, 5, 3, 4)
+calc1.Divide(4, 2, 5)
+calc1.Multiply(2, 3, 2, 2)
 calc1.PrintResults()
 
 # name, producer, color, memList, version
 calc2 = ScientificCalc("calc2", "Yurii", "Na", "lol1", "ScientificCalc")
 calc2.Log(2)
-calc2.Pow(3, 2)
+calc2.Pow(3, 2, 2)
 calc2.Add([3, 2])
 calc2.PrintResults()
 
@@ -115,6 +118,3 @@ calc3.Add([2, 4, 6])
 calc3.GetMeanRes([1, 2, 3, 4])
 calc3.GetStdRes()
 calc3.PrintResults()
-
-
-
