@@ -1,8 +1,8 @@
-# write code below
+# task for classes, inheritance & polymorphism
 import math
 from statistics import mean, stdev
 
-# parent class -> Cals
+# parent class -> Calc
 class Calc:
     # constructor
     def __init__(self, name, producer, color, memList):
@@ -43,16 +43,16 @@ class Calc:
     def PrintResults(self):
         print("memory list:", self.memList)
 
-# Scientific calcualtor -> child class_1
+# Scientific calculator -> child class_1
 class ScientificCalc(Calc):
-    # constructor of the child class
+    # constructor of the child class_1
     def __init__(self, name, producer, color, memList, version):
-        # reference to the initial class
+        # reference to the parent class
         Calc.__init__(self, name, producer, color, memList)
         # extra attribute for child class
         self.version = version
 
-    # method for the new attribute
+    # methods for the child class_1
     def Log(self, a):
         log_calc = math.log(a)
         print("log: ", log_calc)
@@ -68,14 +68,14 @@ class ScientificCalc(Calc):
 
 # Extra Calculator -> child class_2
 class ExtraCalc(Calc):
-    # constructor of the child class
+    # constructor of the child class_2
     def __init__(self, name, producer, color, memList, ownerName):
-        # reference to the initial class
+        # reference to the parent class
         Calc.__init__(self, name, producer, color, memList)
-        # extra attribute for child class
+        # extra attribute for child class_2
         self.ownerName = ownerName
 
-    # method for the new attribute
+    # methods for the child class_2
     def GetMinRes(self, *args):
         for arg in args:
             min(arg)
@@ -84,7 +84,6 @@ class ExtraCalc(Calc):
         self.memList.append(get_min)
 
     def GetMeanRes(self, *args):
-        # print("Numbers should be provided in the square brackets")
         for arg in args:
             mean(arg)
             get_mean = mean(arg)
@@ -96,22 +95,21 @@ class ExtraCalc(Calc):
         print("Standard deviation", get_sd)
         self.memList.append(get_sd)
 
-
-# name, producer, color, memList
+# checking the code
+# parent class
 calc1 = Calc("calc1", "Yurii", "Na", "dynamic")
 calc1.Add([2, 3])
 calc1.Subtract(10, 5, 3, 4)
 calc1.Divide(4, 2, 5)
 calc1.Multiply(2, 3, 2, 2)
 calc1.PrintResults()
-
-# name, producer, color, memList, version
+# child class_1
 calc2 = ScientificCalc("calc2", "Yurii", "Na", "lol1", "ScientificCalc")
 calc2.Log(2)
 calc2.Pow(3, 2, 2)
 calc2.Add([3, 2])
 calc2.PrintResults()
-
+# child class_2
 calc3 = ExtraCalc("calc3", "Yurii", "Na", "Na", "Exta")
 calc3.GetMinRes([2, 3, 5, 0.5])
 calc3.Add([2, 4, 6])
